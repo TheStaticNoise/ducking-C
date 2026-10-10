@@ -314,6 +314,7 @@ int main(void) { // did you know, the proper way to not take any arguments is to
     temp2 = realloc(temp, sizeof(int) * 10); // resize to 10 ints (first 5 zeroed out all other ones are filled with garbage)
     if (!temp2) {
         printf("Realloc failed\n");
+		free(temp);
         return -1;
     }
     temp = temp2; // change to our new pointer (the previous one is either freed or points to the same memory, but lets assume it moved, always assume that)
